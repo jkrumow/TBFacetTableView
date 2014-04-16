@@ -1,7 +1,0 @@
-pod "TBFacetTableView", :path => "../"
-
-target "Demo" do
-end
-
-target "DemoTests" do
-end

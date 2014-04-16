@@ -3,6 +3,8 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/TBFacetTableView/badge.png)](http://cocoadocs.org/docsets/TBFacetTableView)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/TBFacetTableView/badge.png)](http://cocoadocs.org/docsets/TBFacetTableView)
 
+A UITableView with cells shaped like facets.
+
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
@@ -18,7 +20,7 @@ it simply add the following line to your Podfile:
 
 ## Author
 
-Julian Krumow, julian.krumow@artcom.de
+Julian Krumow, julian.krumow@tarbrain.com
 
 ## License
 
