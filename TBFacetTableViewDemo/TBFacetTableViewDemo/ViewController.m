@@ -63,8 +63,8 @@
     cell.facetColorTop = [self colorForIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
     cell.facetColorBottom = [self colorForIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
     
-    cell.pathTop = [self pathForCellAtIndexPath:indexPath];
-    cell.pathBottom = [self pathForCellAtIndexPath:indexPath];
+    cell.pathTop = [self topPathForCellAtIndexPath:indexPath];
+    cell.pathBottom = [self bottomPathForCellAtIndexPath:indexPath];
     
     return cell;
 }
@@ -75,7 +75,17 @@
     return cellColor;
 }
 
-- (CGPathRef)pathForCellAtIndexPath:(NSIndexPath *)indexPath
+- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (indexPath.row % 2) ? self.pathTop : self.pathBottom;
+}
+
+- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (indexPath.row % 2) ? self.pathBottom : self.pathTop;
+}
+
+- (CGMutablePathRef)pathTop
 {
     if (_pathTop == NULL) {
         CGFloat x = 0.f;
@@ -85,11 +95,15 @@
         _pathTop = CGPathCreateMutable();
         CGPathMoveToPoint(_pathTop, nil, x, y);
         CGPathAddLineToPoint(_pathTop, NULL, 30.f, 10.f);
-        CGPathAddLineToPoint(_pathTop, NULL, 120.f, 10.f);
-        CGPathAddLineToPoint(_pathTop, NULL, 130.f, -10.f);
+        CGPathAddLineToPoint(_pathTop, NULL, 60.f, 10.f);
+        CGPathAddLineToPoint(_pathTop, NULL, 80.f, -10.f);
         CGPathAddLineToPoint(_pathTop, NULL, x+w, y );
     }
-    
+    return _pathTop;
+}
+
+- (CGMutablePathRef)pathBottom
+{
     if (_pathBottom == NULL) {
         CGFloat x = 0.f;
         CGFloat y = 0.f;
@@ -97,13 +111,12 @@
         
         _pathBottom = CGPathCreateMutable();
         CGPathMoveToPoint(_pathBottom, nil, x, y);
-        CGPathAddLineToPoint(_pathBottom, NULL, 30.f, 10.f);
-        CGPathAddLineToPoint(_pathBottom, NULL, 70.f, 0.f);
-        CGPathAddLineToPoint(_pathBottom, NULL, 100.f, -10.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, 30.f, 30.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, 120.f, 30.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, 130.f, -30.f);
         CGPathAddLineToPoint(_pathBottom, NULL, x+w, y );
     }
-
-    return (indexPath.row % 2) ? _pathTop : _pathBottom;
+    return _pathBottom;
 }
 
 #pragma mark - TBFacetTableViewDelegate methods

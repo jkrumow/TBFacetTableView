@@ -16,10 +16,8 @@
 
 - (UIColor *)colorForIndexPath:(NSIndexPath *)indexPath;
 
-//- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath;
-//- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath;
-
-- (CGPathRef)pathForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
