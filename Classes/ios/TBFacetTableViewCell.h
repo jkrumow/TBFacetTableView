@@ -18,4 +18,7 @@
 
 + (NSString *)reuseIdentifier;
 
+- (void)setHighlightedTop:(BOOL)highlighted animated:(BOOL)animated;
+- (void)setHighlightedBottom:(BOOL)highlighted animated:(BOOL)animated;
+
 @end

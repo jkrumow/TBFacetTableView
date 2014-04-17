@@ -70,7 +70,8 @@
 
 - (UIColor *)colorForIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = indexPath.row;
-    return _cellColors[row%_cellColors.count];
+    UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : _cellColors[row%_cellColors.count];
+    return cellColor;
 }
 
 - (CGPathRef)pathForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -95,6 +96,22 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50.0 + (rand() %50);
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TBFacetTableViewCell *cellAbove = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
+    [cellAbove setHighlightedBottom:YES animated:NO];
+    TBFacetTableViewCell *cellBelow = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
+    [cellBelow setHighlightedTop:YES animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TBFacetTableViewCell *cellAbove = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
+    [cellAbove setHighlightedBottom:NO animated:NO];
+    TBFacetTableViewCell *cellBelow = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
+    [cellBelow setHighlightedTop:NO animated:NO];
 }
 
 @end
