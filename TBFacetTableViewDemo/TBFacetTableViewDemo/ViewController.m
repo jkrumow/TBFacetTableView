@@ -13,7 +13,8 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NSArray *cellColors;
-@property (nonatomic, assign) CGMutablePathRef path;
+@property (nonatomic, assign) CGMutablePathRef pathTop;
+@property (nonatomic, assign) CGMutablePathRef pathBottom;
 @end
 
 @implementation ViewController
@@ -51,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 200;
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,19 +77,33 @@
 
 - (CGPathRef)pathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_path == NULL) {
+    if (_pathTop == NULL) {
         CGFloat x = 0.f;
         CGFloat y = 0.f;
         CGFloat w = _facetTableView.bounds.size.width;
         
-        _path = CGPathCreateMutable();
-        CGPathMoveToPoint(_path, nil, x, y);
-        CGPathAddLineToPoint(_path, NULL, 30.f, 10.f);
-        CGPathAddLineToPoint(_path, NULL, 120.f, 10.f);
-        CGPathAddLineToPoint(_path, NULL, 130.f, -10.f);
-        CGPathAddLineToPoint(_path, NULL, x+w, y );
+        _pathTop = CGPathCreateMutable();
+        CGPathMoveToPoint(_pathTop, nil, x, y);
+        CGPathAddLineToPoint(_pathTop, NULL, 30.f, 10.f);
+        CGPathAddLineToPoint(_pathTop, NULL, 120.f, 10.f);
+        CGPathAddLineToPoint(_pathTop, NULL, 130.f, -10.f);
+        CGPathAddLineToPoint(_pathTop, NULL, x+w, y );
     }
-    return _path;
+    
+    if (_pathBottom == NULL) {
+        CGFloat x = 0.f;
+        CGFloat y = 0.f;
+        CGFloat w = _facetTableView.bounds.size.width;
+        
+        _pathBottom = CGPathCreateMutable();
+        CGPathMoveToPoint(_pathBottom, nil, x, y);
+        CGPathAddLineToPoint(_pathBottom, NULL, 30.f, 10.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, 70.f, 0.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, 100.f, -10.f);
+        CGPathAddLineToPoint(_pathBottom, NULL, x+w, y );
+    }
+
+    return (indexPath.row % 2) ? _pathTop : _pathBottom;
 }
 
 #pragma mark - TBFacetTableViewDelegate methods
