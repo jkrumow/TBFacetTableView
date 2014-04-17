@@ -13,7 +13,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NSArray *cellColors;
-
+@property (nonatomic, assign) CGMutablePathRef path;
 @end
 
 @implementation ViewController
@@ -51,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return 200;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,9 +65,6 @@
     cell.pathTop = [self pathForCellAtIndexPath:indexPath];
     cell.pathBottom = [self pathForCellAtIndexPath:indexPath];
     
-    
-    cell.facetTextLabel.text = [NSString stringWithFormat:@"Item%li", (long)indexPath.row];
-    
     return cell;
 }
 
@@ -78,48 +75,26 @@
 
 - (CGPathRef)pathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [_facetTableView cellForRowAtIndexPath:indexPath];
-    CGRect rect = cell.bounds;
-    CGFloat x = rect.origin.x;
-    CGFloat y = rect.origin.y;
-    CGFloat w = 320.f; //rect.size.width;
-    CGFloat h = 80.f;//rect.size.height;
-    
-    /****/
-    // Avoid drawing the path beyond the next cell
-    //CGFloat controlYOffset = verticalVelocity*2>(h/2)?(h/2):verticalVelocity*2;
-    
-    // Bezier control points
-    CGFloat controlPointX2, controlPointX3;
-    controlPointX3 = controlPointX2;
-    
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, nil, x, y);
-    CGPathAddLineToPoint(path, NULL, 30.f, 10.f);
-    CGPathAddLineToPoint(path, NULL, 120.f, 10.f);
-    CGPathAddLineToPoint(path, NULL, 130.f, -10.f);
-    CGPathAddLineToPoint(path, NULL, x+w, y );
-    
-    /****/
-    
-    return path;
+    if (_path == NULL) {
+        CGFloat x = 0.f;
+        CGFloat y = 0.f;
+        CGFloat w = _facetTableView.bounds.size.width;
+        
+        _path = CGPathCreateMutable();
+        CGPathMoveToPoint(_path, nil, x, y);
+        CGPathAddLineToPoint(_path, NULL, 30.f, 10.f);
+        CGPathAddLineToPoint(_path, NULL, 120.f, 10.f);
+        CGPathAddLineToPoint(_path, NULL, 130.f, -10.f);
+        CGPathAddLineToPoint(_path, NULL, x+w, y );
+    }
+    return _path;
 }
 
 #pragma mark - TBFacetTableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0;
+    return 50.0 + (rand() %50);
 }
-
-
-/*
- - override layoutSubviews in table to push table cells into each other?
- - use transform to shift path between top and bottom position
-
- 
- */
-
-
 
 @end

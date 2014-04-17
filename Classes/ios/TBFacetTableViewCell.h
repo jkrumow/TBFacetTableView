@@ -16,8 +16,6 @@
 @property (assign, nonatomic) CGPathRef pathTop;
 @property (assign, nonatomic) CGPathRef pathBottom;
 
-@property (weak, nonatomic) IBOutlet UILabel *facetTextLabel;
-
 + (NSString *)reuseIdentifier;
 
 @end
