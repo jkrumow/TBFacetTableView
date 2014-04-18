@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIColor *facetColor;
 @property (strong, nonatomic) UIColor *facetColorTop;
 @property (strong, nonatomic) UIColor *facetColorBottom;
+@property (nonatomic, assign) BOOL isHighlighted;
 @property (assign, nonatomic) CGPathRef pathTop;
 @property (assign, nonatomic) CGPathRef pathBottom;
 

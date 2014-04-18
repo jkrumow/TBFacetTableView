@@ -123,6 +123,8 @@
 {
     [super setHighlighted:highlighted animated:animated];
     
+    self.isHighlighted = highlighted;
+    
     _currentColor = (highlighted) ? _highlightColor : _facetColor;
     [self setNeedsDisplay];
 }

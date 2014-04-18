@@ -9,10 +9,11 @@
 #import "ViewController.h"
 
 #import "TBFacetTableViewCell.h"
-#import "TBFacetTableViewCellConfigurator.h"
+#import "TBFacetTableViewCellManager.h"
+
 
 @interface ViewController ()
-@property (nonatomic, strong) TBFacetTableViewCellConfigurator *facetCellConfigurator;
+@property (nonatomic, strong) TBFacetTableViewCellManager *facetCellManager;
 @property (nonatomic, strong) NSArray *cellColors;
 @property (nonatomic, assign) CGMutablePathRef pathTop;
 @property (nonatomic, assign) CGMutablePathRef pathBottom;
@@ -25,12 +26,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-        _cellColors = @[[UIColor colorWithRed:27.0f/255.0f green:191.0f/255.0f blue:161.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:126.0f/255.0f green:113.0f/255.0f blue:128.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:255.0f/255.0f green:79.0f/255.0f blue:75.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:150.0f/255.0f green:214.0f/255.0f blue:217.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:230.0f/255.0f green:213.0f/255.0f blue:143.0f/255.0f alpha:1.0f]];
-        
     }
     return self;
 }
@@ -41,7 +36,7 @@
 	
     [_facetTableView registerNib:[UINib nibWithNibName:@"FacetTableViewCell" bundle:nil] forCellReuseIdentifier:[TBFacetTableViewCell reuseIdentifier]];
     
-    _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithDelegate:self];
+    _facetCellManager = [[TBFacetTableViewCellManager alloc] initWithTableView:_facetTableView delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +60,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier] forIndexPath:indexPath];
-    [_facetCellConfigurator configureCell:cell atIndexpath:indexPath];
+    [_facetCellManager configureCell:cell atIndexpath:indexPath];
+        
     return cell;
 }
 
@@ -76,27 +72,11 @@
     return 50.0 + (rand() %50);
 }
 
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TBFacetTableViewCell *cellAbove = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
-    [cellAbove setHighlightedBottom:YES animated:NO];
-    TBFacetTableViewCell *cellBelow = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
-    [cellBelow setHighlightedTop:YES animated:NO];
-}
+#pragma mark - TBFacetTableViewCellManagerDelegate
 
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TBFacetTableViewCell *cellAbove = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
-    [cellAbove setHighlightedBottom:NO animated:NO];
-    TBFacetTableViewCell *cellBelow = (TBFacetTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
-    [cellBelow setHighlightedTop:NO animated:NO];
-}
-
-#pragma mark - TBFacetTableViewCellConfiguratorDelegate
-
-- (UIColor *)colorForIndexPath:(NSIndexPath *)indexPath {
+- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = indexPath.row;
-    UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : _cellColors[row%_cellColors.count];
+    UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellColors[row%self.cellColors.count];
     return cellColor;
 }
 
@@ -108,6 +88,20 @@
 - (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return (indexPath.row % 2) ? self.pathBottom : self.pathTop;
+}
+
+# pragma mark - model
+
+- (NSArray *)cellColors
+{
+    if (_cellColors == nil) {
+        _cellColors = @[[UIColor colorWithRed:27.0f/255.0f green:191.0f/255.0f blue:161.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:126.0f/255.0f green:113.0f/255.0f blue:128.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:255.0f/255.0f green:79.0f/255.0f blue:75.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:150.0f/255.0f green:214.0f/255.0f blue:217.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:230.0f/255.0f green:213.0f/255.0f blue:143.0f/255.0f alpha:1.0f]];
+    }
+    return _cellColors;
 }
 
 - (CGMutablePathRef)pathTop
