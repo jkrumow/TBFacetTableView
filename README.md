@@ -5,6 +5,8 @@
 
 A UITableView with cells shaped like facets.
 
+![Screenshot](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/screenshot.png)
+
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
