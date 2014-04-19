@@ -78,7 +78,7 @@
     CGFloat w = rect.size.width;
     CGFloat h = rect.size.height;
     
-    // Filling colors top and bottom
+    // Fill colors top and bottom
     CGContextSetFillColorWithColor(ctx, [_currentColorTop CGColor]);
     CGRect rectTop = CGRectMake(x, y, w, h/2);
     CGContextFillRect(ctx, rectTop);
@@ -89,18 +89,31 @@
     // Draw the path from both sub paths
     CGMutablePathRef path = CGPathCreateMutable();
     
-    // Draw top
-    CGPathAddPath(path, NULL, _pathBottom);
+    // Draw bottom edge - scale if necessary
+    CGRect pathRect = CGPathGetPathBoundingBox(_pathBottom);
+    CGFloat currentWidthScale = self.bounds.size.width / pathRect.size.width;
+    CGAffineTransform stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
+    CGPathAddPath(path, &stretch, _pathBottom);
+    
+    // Draw right edge
     CGPathAddLineToPoint(path, nil, x+w, y+h);
     
-    /** shift up **/
-    CGAffineTransform shiftUp = CGAffineTransformMakeTranslation(0.f, y+h);
-    CGPathAddPath(path, &shiftUp, _pathTop);
+    // Draw top edge - scale if necessary
+    pathRect = CGPathGetPathBoundingBox(_pathTop);
+    currentWidthScale = self.bounds.size.width / pathRect.size.width;
+    stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
+    CGMutablePathRef stretchedPath = CGPathCreateMutable();
+    CGPathAddPath(stretchedPath, &stretch, _pathTop);
     
-    // Draw bottom
+    // Shift up the path
+    CGAffineTransform shiftUp = CGAffineTransformMakeTranslation(0.f, y+h);
+    CGPathAddPath(path, &shiftUp, stretchedPath);
+
+    // Draw left edge
     CGPathAddLineToPoint(path, nil, x, y);
     CGPathCloseSubpath(path);
     
+    // Fill main cell color
     CGContextAddPath(ctx, path);
     CGContextSetFillColorWithColor(ctx, [_currentColor CGColor]);
     CGContextFillPath(ctx);

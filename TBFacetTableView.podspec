@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TBFacetTableView"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "A UITableView with cells shaped like facets."
   s.description      = <<-DESC
                        A UITableView with cells shaped like facets. Facets can be highlighted.
