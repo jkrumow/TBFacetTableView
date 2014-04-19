@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface TBFacetTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UIColor *facetColor;
@@ -18,7 +19,6 @@
 @property (assign, nonatomic) CGPathRef pathBottom;
 
 + (NSString *)reuseIdentifier;
-
 - (void)setHighlightedTop:(BOOL)highlighted animated:(BOOL)animated;
 - (void)setHighlightedBottom:(BOOL)highlighted animated:(BOOL)animated;
 

@@ -14,7 +14,6 @@
 @interface TBFacetTableViewCellManager : NSObject
 
 - (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<TBFacetTableViewCellManagerDelegate>)delegate;
-
 - (void)configureCell:(TBFacetTableViewCell *)cell atIndexpath:(NSIndexPath *)indexPath;
 
 @end
