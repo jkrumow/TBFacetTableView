@@ -89,25 +89,25 @@
     // Draw the path from both sub paths
     CGMutablePathRef path = CGPathCreateMutable();
     
-    // Draw bottom edge - scale if necessary
-    CGRect pathRect = CGPathGetPathBoundingBox(_pathBottom);
+    // Draw top edge - scale if necessary
+    CGRect pathRect = CGPathGetPathBoundingBox(_pathTop);
     CGFloat currentWidthScale = self.bounds.size.width / pathRect.size.width;
     CGAffineTransform stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
-    CGPathAddPath(path, &stretch, _pathBottom);
+    CGPathAddPath(path, &stretch, _pathTop);
     
     // Draw right edge
     CGPathAddLineToPoint(path, nil, x+w, y+h);
     
-    // Draw top edge - scale if necessary
-    pathRect = CGPathGetPathBoundingBox(_pathTop);
+    // Draw bottom edge - scale if necessary
+    pathRect = CGPathGetPathBoundingBox(_pathBottom);
     currentWidthScale = self.bounds.size.width / pathRect.size.width;
     stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
     CGMutablePathRef stretchedPath = CGPathCreateMutable();
-    CGPathAddPath(stretchedPath, &stretch, _pathTop);
+    CGPathAddPath(stretchedPath, &stretch, _pathBottom);
     
-    // Shift up the path
-    CGAffineTransform shiftUp = CGAffineTransformMakeTranslation(0.f, y+h);
-    CGPathAddPath(path, &shiftUp, stretchedPath);
+    // Shift down the path
+    CGAffineTransform shiftDown = CGAffineTransformMakeTranslation(0.f, y+h);
+    CGPathAddPath(path, &shiftDown, stretchedPath);
 
     // Draw left edge
     CGPathAddLineToPoint(path, nil, x, y);
