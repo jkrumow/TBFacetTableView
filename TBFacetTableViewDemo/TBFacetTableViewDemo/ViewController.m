@@ -9,11 +9,11 @@
 #import "ViewController.h"
 
 #import "TBFacetTableViewCell.h"
-#import "TBFacetTableViewCellManager.h"
+#import "TBFacetTableViewCellConfigurator.h"
 
 
 @interface ViewController ()
-@property (nonatomic, strong) TBFacetTableViewCellManager *facetCellManager;
+@property (nonatomic, strong) TBFacetTableViewCellConfigurator *facetCellConfigurator;
 @property (nonatomic, strong) NSArray *cellColors;
 @property (nonatomic, assign) CGMutablePathRef pathTop;
 @property (nonatomic, assign) CGMutablePathRef pathBottom;
@@ -26,7 +26,7 @@
     [super viewDidLoad];
 	
     [_facetTableView registerNib:[UINib nibWithNibName:@"FacetTableViewCell" bundle:nil] forCellReuseIdentifier:[TBFacetTableViewCell reuseIdentifier]];
-    _facetCellManager = [[TBFacetTableViewCellManager alloc] initWithTableView:_facetTableView delegate:self];
+    _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +49,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier] forIndexPath:indexPath];
-    [_facetCellManager configureCell:cell atIndexpath:indexPath];
+    [_facetCellConfigurator configureCell:cell atIndexpath:indexPath];
         
     return cell;
 }
@@ -61,7 +61,7 @@
     return 50.0 + (rand() %50);
 }
 
-#pragma mark - TBFacetTableViewCellManagerDelegate
+#pragma mark - TBFacetTableViewCellConfiguratorDelegate
 
 - (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = indexPath.row;

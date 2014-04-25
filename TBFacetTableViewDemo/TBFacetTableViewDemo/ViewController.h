@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TBFacetTableViewCellManager.h"
+#import "TBFacetTableViewCellConfigurator.h"
 
-@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, TBFacetTableViewCellManagerDelegate>
+@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, TBFacetTableViewCellConfiguratorDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *facetTableView;
 

@@ -1,52 +1,41 @@
 //
-//  TBFacetTableViewCellManager.m
+//  TBFacetTableViewCellObserver.m
 //  TBFacetTableView
 //
-//  Created by Julian Krumow on 18.04.14.
+//  Created by Julian Krumow on 26.04.14.
+//  Copyright (c) 2014 Julian Krumow. All rights reserved.
 //
-//
 
-#import "TBFacetTableViewCellManager.h"
+#import "TBFacetTableViewCellObserver.h"
 
-static void     *highlightContext = &highlightContext;
-static NSString *highlightKeyPath = @"isHighlighted";
 
-@interface TBFacetTableViewCellManager ()
+@interface TBFacetTableViewCellObserver ()
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, assign) id<TBFacetTableViewCellManagerDelegate> delegate;
+@property (nonatomic, strong) NSMutableSet *registeredCells;
 
 @end
 
-@implementation TBFacetTableViewCellManager
+@implementation TBFacetTableViewCellObserver
 
-- (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<TBFacetTableViewCellManagerDelegate>)delegate
+- (instancetype)initWithTableView:(UITableView *)tableView
 {
     self = [super init];
     if (self) {
         
         _tableView = tableView;
-        _delegate = delegate;
+        _registeredCells = [[NSMutableSet alloc] init];
         
     }
     return self;
 }
 
-- (void)configureCell:(TBFacetTableViewCell *)cell atIndexpath:(NSIndexPath *)indexPath
+- (void)registerCell:(TBFacetTableViewCell *)cell
 {
-    cell.facetColor = [self.delegate colorForCellAtIndexPath:indexPath];
-    cell.pathTop = [self.delegate topPathForCellAtIndexPath:indexPath];
-    cell.pathBottom = [self.delegate bottomPathForCellAtIndexPath:indexPath];
-    
-    cell.facetColorTop = [self.delegate colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
-    cell.facetColorBottom = [self.delegate colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
-    
-    @try {
-        [cell removeObserver:self forKeyPath:highlightKeyPath context:highlightContext];
-    } @catch(id Exception) {
-        
+    if ([_registeredCells containsObject:cell] == NO) {
+        [_registeredCells addObject:cell];
+        [cell addObserver:self forKeyPath:highlightKeyPath options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:highlightContext];
     }
-    [cell addObserver:self forKeyPath:highlightKeyPath options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:highlightContext];
 }
 
 #pragma mark - KVO
@@ -79,4 +68,3 @@ static NSString *highlightKeyPath = @"isHighlighted";
 
 
 @end
-
