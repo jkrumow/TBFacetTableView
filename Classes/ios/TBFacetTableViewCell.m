@@ -108,6 +108,7 @@
     // Shift down the path
     CGAffineTransform shiftDown = CGAffineTransformMakeTranslation(0.f, y+h);
     CGPathAddPath(path, &shiftDown, stretchedPath);
+    CGPathRelease(stretchedPath);
 
     // Draw left edge
     CGPathAddLineToPoint(path, nil, x, y);
