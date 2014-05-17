@@ -30,6 +30,8 @@
         _delegate = delegate;
         
         _cellObserver = [[TBFacetTableViewCellObserver alloc] initWithTableView:_tableView];
+        
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
