@@ -24,11 +24,11 @@ it simply add the following line to your Podfile:
 
 This pod consists of three classes:
 
-* `TBFacetTableViewCells` - which can configured to be shaped like facets or shards
+* `TBFacetTableViewCell` - which can configured to be shaped like facets or shards
 * `TBFacetTableViewCellConfigurator` - to configure the cells
 * `TBFacetTableViewCellObserver` - to handle the selection state of the cells
 
-To use the classes in your code import `TBFacetTableViewCellConfigurator.h`.
+To use the classes in your code just import `TBFacetTableViewCellConfigurator.h`.
 
 Your view controller class must implement the `TBFacetTableViewCellConfiguratorDelegate` protocol:
 
@@ -51,7 +51,8 @@ Your view controller class must implement the `TBFacetTableViewCellConfiguratorD
 Create an instance of `TBFacetTableViewCellConfigurator` passing a regular `UITableView` instance or subtype:
 
 ```objective-c
-_facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView delegate:self];
+_facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView
+                                                                            delegate:self];
 ```
 
 Use it to configure your `TBFacetTableViewCell`:
@@ -59,7 +60,8 @@ Use it to configure your `TBFacetTableViewCell`:
 ```objective-c
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier] forIndexPath:indexPath];
+    TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier]
+                                                                 forIndexPath:indexPath];
     [_facetCellConfigurator configureCell:cell atIndexpath:indexPath];
         
     return cell;
