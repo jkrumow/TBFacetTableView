@@ -22,23 +22,41 @@ it simply add the following line to your Podfile:
 
 ## Usage
 
-To use TBFacetTableView pod just use the `TBFacetTableViewCellConfigurator` to configure `TBFacetTableViewCells`.
+This pod consists of two classes:
 
-```
-#import "TBFacetTableViewCellConfigurator.h"
-```
+* `TBFacetTableViewCells` - which can configured to be shaped like facets or shards
+* `TBFacetTableViewCellConfigurator` - to configure the cells
+* `TBFacetTableViewCellObserver` - to handle the selection state of the cells
 
-Your view controller class must implement the `TBFacetTableViewCellConfiguratorDelegate` protocol.
+To use the classes in your code import `TBFacetTableViewCellConfigurator.h`.
+
+Your view controller class must implement the `TBFacetTableViewCellConfiguratorDelegate` protocol:
+
+```objective-c
+- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
+    return // whatever color you like
+}
+
+- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return // whatever CGPathRef you like - must match bottom path of cell above
+}
+
+- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return // whatever CGPathRef you like - must match top path of cell below
+}
+```
 
 Create an instance of `TBFacetTableViewCellConfigurator` passing a regular `UITableView` instance or subtype:
 
-```
+```objective-c
 _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView delegate:self];
 ```
 
 Use it to configure your `TBFacetTableViewCell`:
 
-```
+```objective-c
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier] forIndexPath:indexPath];
@@ -47,8 +65,6 @@ Use it to configure your `TBFacetTableViewCell`:
     return cell;
 }
 ```
-
-In the delegate methods `- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath` and `- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath` return the corresponding `CGPathRef`.
 
 ## Author
 
