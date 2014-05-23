@@ -22,7 +22,7 @@ it simply add the following line to your Podfile:
 
 ## Usage
 
-This pod consists of two classes:
+This pod consists of three classes:
 
 * `TBFacetTableViewCells` - which can configured to be shaped like facets or shards
 * `TBFacetTableViewCellConfigurator` - to configure the cells
