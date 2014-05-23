@@ -8,10 +8,6 @@
 
 #import "ViewController.h"
 
-#import "TBFacetTableViewCell.h"
-#import "TBFacetTableViewCellConfigurator.h"
-
-
 @interface ViewController ()
 @property (nonatomic, strong) TBFacetTableViewCellConfigurator *facetCellConfigurator;
 @property (nonatomic, strong) NSArray *cellColors;
