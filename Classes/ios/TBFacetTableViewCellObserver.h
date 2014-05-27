@@ -10,11 +10,12 @@
 
 #import "TBFacetTableViewCell.h"
 
-static void *highlightContext = &highlightContext;
-static NSString *highlightKeyPath = @"isHighlighted";
 
 /**
- *  This class observes the state of given `TBFacetTableViewCell`s in a specified `UITableView`
+ *  This class observes the state of given `TBFacetTableViewCell`s in a specified `UITableView` and triggers additional behavior.
+ *
+ * This class currently observes:
+ *      - the highlight state of the cell -> triggers highlighting of the neibouring cell's top and bottom area.
  */
 @interface TBFacetTableViewCellObserver : NSObject
 

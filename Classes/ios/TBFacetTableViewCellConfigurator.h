@@ -14,21 +14,25 @@
 
 /**
  *  This class configures `TBFacetTableViewCell`s.
+ *
+ *  Uses the `TBFacetTableViewCellConfiguratorDelegate` protocol to request color and paths from the delegate for the given cell.
  */
 @interface TBFacetTableViewCellConfigurator : NSObject
 
 /**
  *  Initializes the `TBFacetTableViewCellConfigurator` with a given `UITableView` and a `TBFacetTableViewCellConfiguratorDelegate` object.
  *
- *  @param tableView A `UITableView`
- *  @param delegate  A delegate
+ *  @param tableView The `UITableView` hosting the TBFacetTableViewCell in question
+ *  @param delegate  An object conforming to the `TBFacetTableViewCellConfiguratorDelegate` protocol
  *
  *  @return The fully initialized `TBFacetTableViewCellConfigurator` instance
  */
 - (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<TBFacetTableViewCellConfiguratorDelegate>)delegate;
 
 /**
- *  Configures a given `TBFacetTableViewCell`. Requests `facetColor`, `facetColorTop` and `facetColorBottom` from the `TBFacetTableViewCellConfiguratorDelegate`object.
+ *  Configures a given `TBFacetTableViewCell`.
+ *
+ *  Causes the instance to requests `facetColor`, `facetColorTop` and `facetColorBottom` from the `TBFacetTableViewCellConfiguratorDelegate` object.
  *
  *  @param cell      The given `TBFacetTableViewCell` to configure
  *  @param indexPath The cell's indexPath
@@ -38,12 +42,12 @@
 @end
 
 /**
- *  This protocol is used by the `TBFacetTableViewCellConfigurator` to configure a given `TBFacetTableViewCell`.
+ *  This protocol is used by the `TBFacetTableViewCellConfigurator` to request data to configure a given `TBFacetTableViewCell`.
  */
 @protocol TBFacetTableViewCellConfiguratorDelegate <NSObject>
 
 /**
- *  Retrieves the value for the cell's `facetColor` property.
+ *  Requests the value for the cell's `facetColor` property.
  *
  *  @param indexPath The cell's indexPath
  *
@@ -52,20 +56,29 @@
 - (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
- *  Retrieves the value for the cell's `facetColorTop` property.
+ *  Requests the value for the cell's `highlightColor` property.
  *
  *  @param indexPath The cell's indexPath
  *
- *  @return The cell's `facetColorTop` property
+ *  @return The cell's `highlightColor` property
+ */
+- (UIColor *)highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ *  Requests the value for the cell's `pathTop` property.
+ *
+ *  @param indexPath The cell's indexPath
+ *
+ *  @return The cell's `pathTop` property
  */
 - (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
- *  Retrieves the value for the cell's `facetColorBottom` property.
+ *  Requests the value for the cell's `pathBottom` property.
  *
  *  @param indexPath The cell's indexPath
  *
- *  @return The cell's `facetColorBottom` property
+ *  @return The cell's `pathBottom` property
  */
 - (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath;
 

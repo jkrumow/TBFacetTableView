@@ -10,7 +10,6 @@
 
 @interface TBFacetTableViewCell ()
 
-@property (nonatomic, retain) UIColor *highlightColor;
 @property (nonatomic, retain) UIColor *currentColor;
 @property (nonatomic, retain) UIColor *currentColorTop;
 @property (nonatomic, retain) UIColor *currentColorBottom;
@@ -123,13 +122,13 @@
 
 - (void)setHighlightedTop:(BOOL)highlighted animated:(BOOL)animated
 {
-    _currentColorTop = (highlighted) ? _highlightColor : _facetColorTop;
+    _currentColorTop = (highlighted) ? _highlightColorTop : _facetColorTop;
     [self setNeedsDisplay];
 }
 
 - (void)setHighlightedBottom:(BOOL)highlighted animated:(BOOL)animated
 {
-    _currentColorBottom = (highlighted) ? _highlightColor : _facetColorBottom;
+    _currentColorBottom = (highlighted) ? _highlightColorBottom : _facetColorBottom;
     [self setNeedsDisplay];
 }
 

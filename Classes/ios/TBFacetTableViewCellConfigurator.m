@@ -10,7 +10,6 @@
 #import "TBFacetTableViewCellObserver.h"
 
 
-
 @interface TBFacetTableViewCellConfigurator ()
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,23 +26,26 @@
     if (self) {
         
         _tableView = tableView;
-        _delegate = delegate;
-        
-        _cellObserver = [[TBFacetTableViewCellObserver alloc] initWithTableView:_tableView];
-        
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        _delegate = delegate;
+        _cellObserver = [[TBFacetTableViewCellObserver alloc] initWithTableView:_tableView];
     }
     return self;
 }
 
 - (void)configureCell:(TBFacetTableViewCell *)cell atIndexpath:(NSIndexPath *)indexPath
 {
-    cell.facetColor = [self.delegate colorForCellAtIndexPath:indexPath];
     cell.pathTop = [self.delegate topPathForCellAtIndexPath:indexPath];
     cell.pathBottom = [self.delegate bottomPathForCellAtIndexPath:indexPath];
     
+    cell.facetColor = [self.delegate colorForCellAtIndexPath:indexPath];
     cell.facetColorTop = [self.delegate colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
     cell.facetColorBottom = [self.delegate colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
+    
+    cell.highlightColor = [self.delegate highlightColorForCellAtIndexPath:indexPath];
+    cell.highlightColorTop = [self.delegate highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
+    cell.highlightColorBottom = [self.delegate highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
     
     [_cellObserver registerCell:cell];
 }

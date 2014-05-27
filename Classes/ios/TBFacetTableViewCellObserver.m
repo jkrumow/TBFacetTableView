@@ -8,6 +8,8 @@
 
 #import "TBFacetTableViewCellObserver.h"
 
+static void *highlightContext = &highlightContext;
+static NSString *highlightKeyPath = @"isHighlighted";
 
 @interface TBFacetTableViewCellObserver ()
 

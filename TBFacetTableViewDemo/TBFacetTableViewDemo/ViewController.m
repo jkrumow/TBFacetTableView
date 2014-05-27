@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (nonatomic, strong) TBFacetTableViewCellConfigurator *facetCellConfigurator;
 @property (nonatomic, strong) NSArray *cellColors;
+@property (nonatomic, strong) NSArray *cellHighlightColors;
 @property (nonatomic, assign) CGMutablePathRef pathTop;
 @property (nonatomic, assign) CGMutablePathRef pathBottom;
 @end
@@ -46,7 +47,7 @@
 {
     TBFacetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TBFacetTableViewCell reuseIdentifier] forIndexPath:indexPath];
     [_facetCellConfigurator configureCell:cell atIndexpath:indexPath];
-        
+    
     return cell;
 }
 
@@ -59,9 +60,17 @@
 
 #pragma mark - TBFacetTableViewCellConfiguratorDelegate
 
-- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath
+{
     NSUInteger row = indexPath.row;
     UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellColors[row%self.cellColors.count];
+    return cellColor;
+}
+
+- (UIColor *)highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = indexPath.row;
+    UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellHighlightColors[row%self.cellHighlightColors.count];
     return cellColor;
 }
 
@@ -80,13 +89,29 @@
 - (NSArray *)cellColors
 {
     if (_cellColors == nil) {
-        _cellColors = @[[UIColor colorWithRed:27.0f/255.0f green:191.0f/255.0f blue:161.0f/255.0f alpha:1.0f],
+        _cellColors = @[
                         [UIColor colorWithRed:126.0f/255.0f green:113.0f/255.0f blue:128.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:255.0f/255.0f green:79.0f/255.0f blue:75.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:27.0f/255.0f green:191.0f/255.0f blue:161.0f/255.0f alpha:1.0f],
                         [UIColor colorWithRed:150.0f/255.0f green:214.0f/255.0f blue:217.0f/255.0f alpha:1.0f],
-                        [UIColor colorWithRed:230.0f/255.0f green:213.0f/255.0f blue:143.0f/255.0f alpha:1.0f]];
+                        [UIColor colorWithRed:255.0f/255.0f green:79.0f/255.0f blue:75.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:230.0f/255.0f green:213.0f/255.0f blue:143.0f/255.0f alpha:1.0f]
+                        ];
     }
     return _cellColors;
+}
+
+- (NSArray *)cellHighlightColors
+{
+    if (_cellHighlightColors == nil) {
+        _cellHighlightColors = @[
+                        [UIColor colorWithRed:27.0f/255.0f green:191.0f/255.0f blue:161.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:50.0f/255.0f green:200.0f/255.0f blue:40.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:200.0f/255.0f green:214.0f/255.0f blue:217.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:255.0f/255.0f green:114.0f/255.0f blue:50.0f/255.0f alpha:1.0f],
+                        [UIColor colorWithRed:14.0f/255.0f green:80.0f/255.0f blue:143.0f/255.0f alpha:1.0f]
+                        ];
+    }
+    return _cellHighlightColors;
 }
 
 - (CGMutablePathRef)pathTop
