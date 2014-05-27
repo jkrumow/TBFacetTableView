@@ -24,7 +24,7 @@ it simply add the following line to your Podfile:
 
 This pod consists of three classes:
 
-* `TBFacetTableViewCell` - which can configured to be shaped like facets or shards
+* `TBFacetTableViewCell` - which can be configured to be shaped like facets or shards
 * `TBFacetTableViewCellConfigurator` - to configure the cells
 * `TBFacetTableViewCellObserver` - to handle the selection state of the cells
 
