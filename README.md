@@ -38,7 +38,13 @@ To use the classes in your code just import `TBFacetTableViewCellConfigurator.h`
 Implement the `TBFacetTableViewCellConfiguratorDelegate` protocol. The best place is your `UIViewController` subclass or `UITableViewDatasource` implementation:
 
 ```objective-c
-- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
+- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return // whatever color you like
+}
+
+- (UIColor *)highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath
+{
     return // whatever color you like
 }
 
