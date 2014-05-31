@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Julian Krumow" => "julian.krumow@tarbrain.com" }
   s.source           = { :git => "https://github.com/tarbrain/TBFacetTableView.git", :tag => s.version.to_s }
-  s.screenshots      = ["https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets.png", https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets_highlighted.png"]
+  s.screenshots      = ["https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets.png", "https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets_highlighted.png"]
 
   s.platform     = :ios, '5.0'
   s.ios.deployment_target = '5.0'
