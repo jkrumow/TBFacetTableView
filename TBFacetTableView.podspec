@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TBFacetTableView"
-  s.version          = "0.1.4"
+  s.version          = "0.2"
   s.summary          = "A UITableView with cells shaped like facets."
   s.description      = <<-DESC
                        A UITableView with cells shaped like facets. Facets can be highlighted.
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Julian Krumow" => "julian.krumow@tarbrain.com" }
   s.source           = { :git => "https://github.com/tarbrain/TBFacetTableView.git", :tag => s.version.to_s }
-  s.screenshots      = ["https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/screenshot.png"]
+  s.screenshots      = ["https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets.png", https://raw.githubusercontent.com/tarbrain/TBFacetTableView/master/Documentation/Images/Screenshots/facets_highlighted.png"]
 
   s.platform     = :ios, '5.0'
   s.ios.deployment_target = '5.0'
