@@ -27,13 +27,15 @@ it simply add the following line to your Podfile:
 
 This pod consists of three classes:
 
-* `TBFacetTableViewCell` - which can be configured to be shaped like facets or shards
-* `TBFacetTableViewCellConfigurator` - to configure the cells
-* `TBFacetTableViewCellObserver` - to handle the selection state of the cells
+* `TBFacetTableViewCell` - UITableViewCell shaped like a facet or shard
+* `TBFacetTableViewCellConfigurator` - configures the cells
+* `TBFacetTableViewCellObserver` - handles the highlight state of the cells
 
 To use the classes in your code just import `TBFacetTableViewCellConfigurator.h`.
 
-Your view controller class must implement the `TBFacetTableViewCellConfiguratorDelegate` protocol:
+### Configuring cells
+
+Implement the `TBFacetTableViewCellConfiguratorDelegate` protocol. The best place is your `UIViewController` subclass or `UITableViewDatasource` implementation:
 
 ```objective-c
 - (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,12 +44,12 @@ Your view controller class must implement the `TBFacetTableViewCellConfiguratorD
 
 - (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    return // whatever CGPathRef you like - must match bottom path of cell above
+    return // whatever CGPathRef you like - should match bottom path of cell above
 }
 
 - (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    return // whatever CGPathRef you like - must match top path of cell below
+    return // whatever CGPathRef you like - should match top path of cell below
 }
 ```
 
@@ -58,7 +60,9 @@ _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTable
                                                                             delegate:self];
 ```
 
-Use it to configure your `TBFacetTableViewCell`:
+### Configuring cells
+
+Configure your `TBFacetTableViewCell` by passing it and its index path:
 
 ```objective-c
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
