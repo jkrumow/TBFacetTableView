@@ -5,7 +5,10 @@
 
 A UITableView with cells shaped like facets.
 
-![Screenshot](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/screenshot.png)
+![Screenshot facets](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets.png)
+
+![Screenshot facets highlihgted](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets_highlighted.png)
+
 
 ## Usage
 
