@@ -32,7 +32,7 @@
 /**
  *  Configures a given `TBFacetTableViewCell`.
  *
- *  Causes the instance to requests `facetColor`, `facetColorTop` and `facetColorBottom` from the `TBFacetTableViewCellConfiguratorDelegate` object.
+ *  Causes the instance to request `facetColor`, `facetColorTop` and `facetColorBottom` from the `TBFacetTableViewCellConfiguratorDelegate` object.
  *
  *  @param cell      The given `TBFacetTableViewCell` to configure
  *  @param indexPath The cell's indexPath
