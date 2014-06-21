@@ -1,7 +1,8 @@
 # TBFacetTableView
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/TBFacetTableView/badge.png)](http://cocoadocs.org/docsets/TBFacetTableView)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/TBFacetTableView/badge.png)](http://cocoadocs.org/docsets/TBFacetTableView)
+[![Version](https://img.shields.io/cocoapods/v/TBFacetTableView.svg?style=flat)](http://cocoadocs.org/docsets/TBFacetTableView)
+[![License](https://img.shields.io/cocoapods/l/TBFacetTableView.svg?style=flat)](http://cocoadocs.org/docsets/TBFacetTableView)
+[![Platform](https://img.shields.io/cocoapods/p/TBFacetTableView.svg?style=flat)](http://cocoadocs.org/docsets/TBFacetTableView)
 
 A UITableView with cells shaped like facets.
 
@@ -10,11 +11,14 @@ A UITableView with cells shaped like facets.
 ![Screenshot facets highlihgted](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets_highlighted.png)
 
 
-## Usage
+## Example project
 
-To run the example project; clone the repo, and run `pod install` from the Example directory first.
+To run the example project; clone the repo, and run `pod install` from the `TBFacetTableViewDemo` directory first.
 
 ## Requirements
+
+* Xcode 5
+* iOS 5.0
 
 ## Installation
 
