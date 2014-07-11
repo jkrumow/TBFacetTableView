@@ -36,16 +36,16 @@
 
 - (void)configureCell:(TBFacetTableViewCell *)cell atIndexpath:(NSIndexPath *)indexPath
 {
-    cell.pathTop = [self.dataSource facetTableViewCellConfigurator:self topPathForCellAtIndexPath:indexPath];
-    cell.pathBottom = [self.dataSource facetTableViewCellConfigurator:self bottomPathForCellAtIndexPath:indexPath];
+    cell.topPath = [self.dataSource facetTableViewCellConfigurator:self topPathForCellAtIndexPath:indexPath];
+    cell.bottomPath = [self.dataSource facetTableViewCellConfigurator:self bottomPathForCellAtIndexPath:indexPath];
     
-    cell.facetColor = [self.dataSource facetTableViewCellConfigurator:self colorForCellAtIndexPath:indexPath];
-    cell.facetColorTop = [self.dataSource facetTableViewCellConfigurator:self colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
-    cell.facetColorBottom = [self.dataSource facetTableViewCellConfigurator:self colorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
+    cell.facetColor = [self.dataSource facetTableViewCellConfigurator:self facetColorForCellAtIndexPath:indexPath];
+    cell.facetTopColor = [self.dataSource facetTableViewCellConfigurator:self facetColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
+    cell.facetBottomColor = [self.dataSource facetTableViewCellConfigurator:self facetColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
     
     cell.highlightColor = [self.dataSource facetTableViewCellConfigurator:self highlightColorForCellAtIndexPath:indexPath];
-    cell.highlightColorTop = [self.dataSource facetTableViewCellConfigurator:self highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
-    cell.highlightColorBottom = [self.dataSource facetTableViewCellConfigurator:self highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
+    cell.highlightTopColor = [self.dataSource facetTableViewCellConfigurator:self highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]];
+    cell.highlightBottomColor = [self.dataSource facetTableViewCellConfigurator:self highlightColorForCellAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section]];
     
     [_cellObserver registerCell:cell];
 }

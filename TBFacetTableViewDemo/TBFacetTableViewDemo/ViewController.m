@@ -60,7 +60,7 @@
 
 #pragma mark - TBFacetTableViewCellConfiguratorDataSource
 
-- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator colorForCellAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator facetColorForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = indexPath.row;
     UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellColors[row%self.cellColors.count];

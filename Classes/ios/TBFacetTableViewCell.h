@@ -27,12 +27,12 @@
 /**
  *  Defines the fill color of the cell above.
  */
-@property (strong, nonatomic) UIColor *facetColorTop;
+@property (strong, nonatomic) UIColor *facetTopColor;
 
 /**
  *  Defines the fill color of the cell below.
  */
-@property (strong, nonatomic) UIColor *facetColorBottom;
+@property (strong, nonatomic) UIColor *facetBottomColor;
 
 /**
  *  Stores the highlight state of the facet.
@@ -47,23 +47,23 @@
 /**
  *  Defines the highlight color of the cell above.
  */
-@property (strong, nonatomic) UIColor *highlightColorTop;
+@property (strong, nonatomic) UIColor *highlightTopColor;
 
 /**
  *  Defines the highlight color of the cell below.
  */
-@property (strong, nonatomic) UIColor *highlightColorBottom;
+@property (strong, nonatomic) UIColor *highlightBottomColor;
 
 
 /**
  *  Stores the path of the top edge of the facet.
  */
-@property (assign, nonatomic) CGPathRef pathTop;
+@property (assign, nonatomic) CGPathRef topPath;
 
 /**
  *  Stores the path of the bottom edge of the facet.
  */
-@property (assign, nonatomic) CGPathRef pathBottom;
+@property (assign, nonatomic) CGPathRef bottomPath;
 
 /**
  *  The cells reuse identifier.

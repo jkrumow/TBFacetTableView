@@ -54,7 +54,7 @@
  *
  *  @return The cell's `facetColor` property
  */
-- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator colorForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator facetColorForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  Requests the value for the cell's `highlightColor` property.

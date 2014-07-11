@@ -11,8 +11,8 @@
 @interface TBFacetTableViewCell ()
 
 @property (nonatomic, retain) UIColor *currentColor;
-@property (nonatomic, retain) UIColor *currentColorTop;
-@property (nonatomic, retain) UIColor *currentColorBottom;
+@property (nonatomic, retain) UIColor *currentTopColor;
+@property (nonatomic, retain) UIColor *currentBottomColor;
 
 @end
 
@@ -56,16 +56,16 @@
     [self initialize];
 }
 
-- (void)setFacetColorTop:(UIColor *)facetColorTop
+- (void)setFacetTopColor:(UIColor *)facetTopColor
 {
-    _facetColorTop = facetColorTop;
-    _currentColorTop = facetColorTop;
+    _facetTopColor = facetTopColor;
+    _currentTopColor = facetTopColor;
 }
 
-- (void)setFacetColorBottom:(UIColor *)facetColorBottom
+- (void)setFacetBottomColor:(UIColor *)facetBottomColor
 {
-    _facetColorBottom = facetColorBottom;
-    _currentColorBottom = facetColorBottom;
+    _facetBottomColor = facetBottomColor;
+    _currentBottomColor = facetBottomColor;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -78,10 +78,10 @@
     CGFloat h = rect.size.height;
     
     // Fill colors top and bottom
-    CGContextSetFillColorWithColor(ctx, [_currentColorTop CGColor]);
+    CGContextSetFillColorWithColor(ctx, [_currentTopColor CGColor]);
     CGRect rectTop = CGRectMake(x, y, w, h/2);
     CGContextFillRect(ctx, rectTop);
-    CGContextSetFillColorWithColor(ctx, [_currentColorBottom CGColor]);
+    CGContextSetFillColorWithColor(ctx, [_currentBottomColor CGColor]);
     CGRect rectBottom = CGRectMake(x, y+h/2, w, h/2);
     CGContextFillRect(ctx, rectBottom);
     
@@ -89,20 +89,20 @@
     CGMutablePathRef path = CGPathCreateMutable();
     
     // Draw top edge - scale if necessary
-    CGRect pathRect = CGPathGetPathBoundingBox(_pathTop);
+    CGRect pathRect = CGPathGetPathBoundingBox(_topPath);
     CGFloat currentWidthScale = self.bounds.size.width / pathRect.size.width;
     CGAffineTransform stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
-    CGPathAddPath(path, &stretch, _pathTop);
+    CGPathAddPath(path, &stretch, _topPath);
     
     // Draw right edge
     CGPathAddLineToPoint(path, nil, x+w, y+h);
     
     // Draw bottom edge - scale if necessary
-    pathRect = CGPathGetPathBoundingBox(_pathBottom);
+    pathRect = CGPathGetPathBoundingBox(_bottomPath);
     currentWidthScale = self.bounds.size.width / pathRect.size.width;
     stretch = CGAffineTransformMakeScale(currentWidthScale, 1);
     CGMutablePathRef stretchedPath = CGPathCreateMutable();
-    CGPathAddPath(stretchedPath, &stretch, _pathBottom);
+    CGPathAddPath(stretchedPath, &stretch, _bottomPath);
     
     // Shift down the path
     CGAffineTransform shiftDown = CGAffineTransformMakeTranslation(0.f, y+h);
@@ -122,13 +122,13 @@
 
 - (void)setHighlightedTop:(BOOL)highlighted animated:(BOOL)animated
 {
-    _currentColorTop = (highlighted) ? _highlightColorTop : _facetColorTop;
+    _currentTopColor = (highlighted) ? _highlightTopColor : _facetTopColor;
     [self setNeedsDisplay];
 }
 
 - (void)setHighlightedBottom:(BOOL)highlighted animated:(BOOL)animated
 {
-    _currentColorBottom = (highlighted) ? _highlightColorBottom : _facetColorBottom;
+    _currentBottomColor = (highlighted) ? _highlightBottomColor : _facetBottomColor;
     [self setNeedsDisplay];
 }
 
