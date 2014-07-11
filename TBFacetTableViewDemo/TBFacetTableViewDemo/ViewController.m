@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	
     [_facetTableView registerNib:[UINib nibWithNibName:@"FacetTableViewCell" bundle:nil] forCellReuseIdentifier:[TBFacetTableViewCell reuseIdentifier]];
-    _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView delegate:self];
+    _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView dataSource:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,28 +58,28 @@
     return 50.0 + (rand() %50);
 }
 
-#pragma mark - TBFacetTableViewCellConfiguratorDelegate
+#pragma mark - TBFacetTableViewCellConfiguratorDataSource
 
-- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator colorForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = indexPath.row;
     UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellColors[row%self.cellColors.count];
     return cellColor;
 }
 
-- (UIColor *)highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = indexPath.row;
     UIColor *cellColor = (indexPath.row >= [self tableView:_facetTableView numberOfRowsInSection:indexPath.section]) ? [UIColor whiteColor] : self.cellHighlightColors[row%self.cellHighlightColors.count];
     return cellColor;
 }
 
-- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath
+- (CGPathRef)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator topPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return (indexPath.row % 2) ? self.pathTop : self.pathBottom;
 }
 
-- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
+- (CGPathRef)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return (indexPath.row % 2) ? self.pathBottom : self.pathTop;
 }
