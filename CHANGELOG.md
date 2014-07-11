@@ -1,5 +1,10 @@
 # TBFacetTableView CHANGELOG
 
+## 1.0.0
+
+* Stable release
+* improved API
+
 ## 0.2
 
 * Added highlight color for cells

@@ -39,25 +39,25 @@ To use the classes in your code just import `TBFacetTableViewCellConfigurator.h`
 
 ### Configuring cells
 
-Implement the `TBFacetTableViewCellConfiguratorDelegate` protocol. The best place is your `UIViewController` subclass or `UITableViewDatasource` implementation:
+Implement the `TBFacetTableViewCellConfiguratorDataSource` protocol. The best place is your `UIViewController` subclass or `UITableViewDatasource` implementation:
 
 ```objective-c
-- (UIColor *)colorForCellAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator facetColorForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return // whatever color you like
 }
 
-- (UIColor *)highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator highlightColorForCellAtIndexPath:(NSIndexPath *)indexPath;
 {
     return // whatever color you like
 }
 
-- (CGPathRef)topPathForCellAtIndexPath:(NSIndexPath *)indexPath
+- (CGPathRef)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator topPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return // whatever CGPathRef you like - should match bottom path of cell above
 }
 
-- (CGPathRef)bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
+- (CGPathRef)facetTableViewCellConfigurator:(TBFacetTableViewCellConfigurator *)facetTableViewCellConfigurator bottomPathForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return // whatever CGPathRef you like - should match top path of cell below
 }
@@ -67,7 +67,7 @@ Create an instance of `TBFacetTableViewCellConfigurator` passing a regular `UITa
 
 ```objective-c
 _facetCellConfigurator = [[TBFacetTableViewCellConfigurator alloc] initWithTableView:_facetTableView
-                                                                            delegate:self];
+                                                                            dataSource:self];
 ```
 
 ### Configuring cells
