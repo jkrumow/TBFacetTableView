@@ -6,9 +6,7 @@
 
 A UITableView with cells shaped like facets.
 
-![Screenshot facets](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets.png)
-
-![Screenshot facets highlihgted](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets_highlighted.png)
+![Screenshot facets](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets.gif)
 
 
 ## Example project
@@ -17,7 +15,6 @@ To run the example project; clone the repo, and run `pod install` from the `TBFa
 
 ## Requirements
 
-* Xcode 5
 * iOS 5.0
 
 ## Installation
@@ -93,3 +90,4 @@ Julian Krumow, julian.krumow@tarbrain.com
 
 TBFacetTableView is available under the MIT license. See the LICENSE file for more info.
 
+[]()
