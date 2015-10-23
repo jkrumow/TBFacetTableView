@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152034A81BDACF3E0068DDAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152034A71BDACF3E0068DDAC /* Launch Screen.storyboard */; };
 		345D79A6068B4A87BC085BD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640C0051EFF42168F81CB58 /* libPods.a */; };
 		3B4ACD0D18FF0E0300097C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4ACD0C18FF0E0300097C2A /* Foundation.framework */; };
 		3B4ACD0F18FF0E0300097C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4ACD0E18FF0E0300097C2A /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		152034A71BDACF3E0068DDAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3B4ACD0918FF0E0300097C2A /* TBFacetTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBFacetTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4ACD0C18FF0E0300097C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B4ACD0E18FF0E0300097C2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,7 +61,8 @@
 		3B4ACD3A18FF0E0300097C2A /* TBFacetTableViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBFacetTableViewDemoTests.m; sourceTree = "<group>"; };
 		3B4ACD4A18FF14E500097C2A /* FacetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacetTableViewCell.xib; sourceTree = "<group>"; };
 		5640C0051EFF42168F81CB58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D39A93780A44728C127B1F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +97,7 @@
 				3B4ACD3418FF0E0300097C2A /* TBFacetTableViewDemoTests */,
 				3B4ACD0B18FF0E0300097C2A /* Frameworks */,
 				3B4ACD0A18FF0E0300097C2A /* Products */,
-				F5D39A93780A44728C127B1F /* Pods.xcconfig */,
+				E76C596D2B82664203CED8E2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +129,7 @@
 				3B4ACD1C18FF0E0300097C2A /* AppDelegate.m */,
 				3B4ACD2418FF0E0300097C2A /* ViewController.h */,
 				3B4ACD2518FF0E0300097C2A /* ViewController.m */,
+				152034A71BDACF3E0068DDAC /* Launch Screen.storyboard */,
 				3B4ACD1E18FF0E0300097C2A /* Main_iPhone.storyboard */,
 				3B4ACD2118FF0E0300097C2A /* Main_iPad.storyboard */,
 				3B4ACD4A18FF14E500097C2A /* FacetTableViewCell.xib */,
@@ -164,6 +168,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E76C596D2B82664203CED8E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */,
+				C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +189,7 @@
 				3B4ACD0618FF0E0300097C2A /* Frameworks */,
 				3B4ACD0718FF0E0300097C2A /* Resources */,
 				B5C83AE1DF2A4AEB8867E250 /* Copy Pods Resources */,
+				9EC417D25D1CBB85987E0257 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +224,7 @@
 		3B4ACD0118FF0E0300097C2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Julian Krumow";
 				TargetAttributes = {
 					3B4ACD2C18FF0E0300097C2A = {
@@ -242,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				152034A81BDACF3E0068DDAC /* Launch Screen.storyboard in Resources */,
 				3B4ACD4B18FF14E500097C2A /* FacetTableViewCell.xib in Resources */,
 				3B4ACD2318FF0E0300097C2A /* Main_iPad.storyboard in Resources */,
 				3B4ACD2818FF0E0300097C2A /* Images.xcassets in Resources */,
@@ -276,6 +291,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9EC417D25D1CBB85987E0257 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B5C83AE1DF2A4AEB8867E250 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,7 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -364,6 +394,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -376,6 +407,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -403,6 +435,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -432,13 +465,13 @@
 		};
 		3B4ACD3F18FF0E0300097C2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5D39A93780A44728C127B1F /* Pods.xcconfig */;
+			baseConfigurationReference = BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemo/TBFacetTableViewDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -446,13 +479,13 @@
 		};
 		3B4ACD4018FF0E0300097C2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5D39A93780A44728C127B1F /* Pods.xcconfig */;
+			baseConfigurationReference = C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemo/TBFacetTableViewDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -474,6 +507,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "TBFacetTableViewDemoTests/TBFacetTableViewDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -492,6 +526,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemoTests/TBFacetTableViewDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
