@@ -471,7 +471,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemo/TBFacetTableViewDemo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jkrumow.TBFacetTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -485,7 +485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemo/TBFacetTableViewDemo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jkrumow.TBFacetTableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -507,7 +507,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "TBFacetTableViewDemoTests/TBFacetTableViewDemoTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jkrumow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -526,7 +526,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBFacetTableViewDemo/TBFacetTableViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBFacetTableViewDemoTests/TBFacetTableViewDemoTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tarbrain.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jkrumow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

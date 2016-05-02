@@ -6,9 +6,9 @@
 
 A UITableView with cells shaped like facets.
 
-![Screenshot facets](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets.png)
+![Screenshot facets](https://github.com/jkrumow/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets.png)
 
-![Screenshot facets highlihgted](https://github.com/tarbrain/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets_highlighted.png)
+![Screenshot facets highlihgted](https://github.com/jkrumow/TBFacetTableView/raw/master/Documentation/Images/Screenshots/facets_highlighted.png)
 
 
 ## Example project
@@ -87,7 +87,7 @@ Configure your `TBFacetTableViewCell` by passing it and its index path:
 
 ## Author
 
-Julian Krumow, julian.krumow@tarbrain.com
+Julian Krumow, julian.krumow@bogusmachine.com
 
 ## License
 
