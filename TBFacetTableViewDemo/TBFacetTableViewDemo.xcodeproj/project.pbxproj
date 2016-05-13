@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		152034A81BDACF3E0068DDAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152034A71BDACF3E0068DDAC /* Launch Screen.storyboard */; };
-		345D79A6068B4A87BC085BD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640C0051EFF42168F81CB58 /* libPods.a */; };
 		3B4ACD0D18FF0E0300097C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4ACD0C18FF0E0300097C2A /* Foundation.framework */; };
 		3B4ACD0F18FF0E0300097C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4ACD0E18FF0E0300097C2A /* CoreGraphics.framework */; };
 		3B4ACD1118FF0E0300097C2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4ACD1018FF0E0300097C2A /* UIKit.framework */; };
@@ -25,6 +24,7 @@
 		3B4ACD3918FF0E0300097C2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B4ACD3718FF0E0300097C2A /* InfoPlist.strings */; };
 		3B4ACD3B18FF0E0300097C2A /* TBFacetTableViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ACD3A18FF0E0300097C2A /* TBFacetTableViewDemoTests.m */; };
 		3B4ACD4B18FF14E500097C2A /* FacetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4ACD4A18FF14E500097C2A /* FacetTableViewCell.xib */; };
+		72B116B25EED4374FA1F97F6 /* libPods-TBFacetTableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AFA905DEAB818B4EFF5853 /* libPods-TBFacetTableViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0294F7C96B7EA849ADF9E45D /* Pods-TBFacetTableViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBFacetTableViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TBFacetTableViewDemo/Pods-TBFacetTableViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		152034A71BDACF3E0068DDAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3B4ACD0918FF0E0300097C2A /* TBFacetTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBFacetTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4ACD0C18FF0E0300097C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,9 +61,8 @@
 		3B4ACD3818FF0E0300097C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B4ACD3A18FF0E0300097C2A /* TBFacetTableViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBFacetTableViewDemoTests.m; sourceTree = "<group>"; };
 		3B4ACD4A18FF14E500097C2A /* FacetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacetTableViewCell.xib; sourceTree = "<group>"; };
-		5640C0051EFF42168F81CB58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		72A39ACF4464574B16862403 /* Pods-TBFacetTableViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBFacetTableViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TBFacetTableViewDemo/Pods-TBFacetTableViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C3AFA905DEAB818B4EFF5853 /* libPods-TBFacetTableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TBFacetTableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				3B4ACD0F18FF0E0300097C2A /* CoreGraphics.framework in Frameworks */,
 				3B4ACD1118FF0E0300097C2A /* UIKit.framework in Frameworks */,
 				3B4ACD0D18FF0E0300097C2A /* Foundation.framework in Frameworks */,
-				345D79A6068B4A87BC085BD1 /* libPods.a in Frameworks */,
+				72B116B25EED4374FA1F97F6 /* libPods-TBFacetTableViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3369C40DE6EDB1723222DB05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72A39ACF4464574B16862403 /* Pods-TBFacetTableViewDemo.debug.xcconfig */,
+				0294F7C96B7EA849ADF9E45D /* Pods-TBFacetTableViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3B4ACD0018FF0E0300097C2A = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +106,7 @@
 				3B4ACD3418FF0E0300097C2A /* TBFacetTableViewDemoTests */,
 				3B4ACD0B18FF0E0300097C2A /* Frameworks */,
 				3B4ACD0A18FF0E0300097C2A /* Products */,
-				E76C596D2B82664203CED8E2 /* Pods */,
+				3369C40DE6EDB1723222DB05 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,7 +126,7 @@
 				3B4ACD0E18FF0E0300097C2A /* CoreGraphics.framework */,
 				3B4ACD1018FF0E0300097C2A /* UIKit.framework */,
 				3B4ACD2E18FF0E0300097C2A /* XCTest.framework */,
-				5640C0051EFF42168F81CB58 /* libPods.a */,
+				C3AFA905DEAB818B4EFF5853 /* libPods-TBFacetTableViewDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,15 +177,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E76C596D2B82664203CED8E2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */,
-				C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,12 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B4ACD3E18FF0E0300097C2A /* Build configuration list for PBXNativeTarget "TBFacetTableViewDemo" */;
 			buildPhases = (
-				8FD6404FC044457CAF4B1244 /* Check Pods Manifest.lock */,
+				5C84EF5A98B02C3E5480013D /* 📦 Check Pods Manifest.lock */,
 				3B4ACD0518FF0E0300097C2A /* Sources */,
 				3B4ACD0618FF0E0300097C2A /* Frameworks */,
 				3B4ACD0718FF0E0300097C2A /* Resources */,
-				B5C83AE1DF2A4AEB8867E250 /* Copy Pods Resources */,
-				9EC417D25D1CBB85987E0257 /* Embed Pods Frameworks */,
+				E7AC9956EA15DCB59E106C9B /* 📦 Embed Pods Frameworks */,
+				DDCD64E05FB9AC159479D1BC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,14 +276,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8FD6404FC044457CAF4B1244 /* Check Pods Manifest.lock */ = {
+		5C84EF5A98B02C3E5480013D /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,34 +291,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9EC417D25D1CBB85987E0257 /* Embed Pods Frameworks */ = {
+		DDCD64E05FB9AC159479D1BC /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TBFacetTableViewDemo/Pods-TBFacetTableViewDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B5C83AE1DF2A4AEB8867E250 /* Copy Pods Resources */ = {
+		E7AC9956EA15DCB59E106C9B /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TBFacetTableViewDemo/Pods-TBFacetTableViewDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -465,7 +465,7 @@
 		};
 		3B4ACD3F18FF0E0300097C2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA38DDC183B8736B07534FCC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 72A39ACF4464574B16862403 /* Pods-TBFacetTableViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -479,7 +479,7 @@
 		};
 		3B4ACD4018FF0E0300097C2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8FCAB66A01854A9532B642A /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0294F7C96B7EA849ADF9E45D /* Pods-TBFacetTableViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

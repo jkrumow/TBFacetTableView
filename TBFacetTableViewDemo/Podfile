@@ -1,1 +1,4 @@
-pod "TBFacetTableView", :path => "../TBFacetTableView.podspec"
+
+target 'TBFacetTableViewDemo' do
+  pod "TBFacetTableView", :path => "../TBFacetTableView.podspec"
+end
